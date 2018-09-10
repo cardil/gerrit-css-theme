@@ -9,7 +9,10 @@
 
 /* Common styles */
 
-@import url(//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=latin,latin-ext,cyrillic);
+@import url('//use.fontawesome.com/releases/v5.2.0/css/solid.css');
+@import url('//use.fontawesome.com/releases/v5.2.0/css/fontawesome.css');
+@import url('//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=latin,latin-ext,cyrillic');
+@import url('//fonts.googleapis.com/css?family=Source+Code+Pro');
 
 body, table td, select {
 	font-family: 'Open Sans', sans-serif !important;
@@ -54,7 +57,7 @@ a {
 .gerritBody a:hover,
 #gerrit_btmmenu a:hover,
 .popupContent a:hover {
-	color: #17A3C1;	
+	color: #17A3C1;
 	text-decoration: none;
 }
 input[type="text"] {
@@ -268,6 +271,7 @@ button {
 }
 .gerritBody .changeTable .dataHeader {
 	padding: 8px 10px;
+	text-transform: uppercase;
 }
 .gerritBody table.changeTable tr:first-child td:first-child {
 	border-top-left-radius: 4px;
@@ -280,7 +284,7 @@ button {
 .gerritBody .com-google-gerrit-client-change-FileTable-FileTableCss-nohover:first-child th {
 	color: #333;
 	font-style: normal;
-	font-weight: bold;
+	font-weight: lighter;
 	background: #E1E4E6;
 	border: none;
 	width: auto;
@@ -295,6 +299,10 @@ button {
 .gerritBody .changeTable .dataCell {
 	height: auto;
 	line-height: 1.3;
+}
+.gerritBody .changeTable .sectionHeader {
+	font-weight: lighter;
+	text-transform: uppercase;
 }
 .gerritBody .changeTable td.iconCell,
 .gerritBody .changeTable td.changeTypeCell {
@@ -569,7 +577,20 @@ button {
 	border-color: #fff3d3 !important;
 	background: #fff3d3 !important;
 }
+.com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-statusRight >
+.com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-popdown > button div:before {
+    display:none;
+    position: relative;
+    border: 0;
+}
 
+.com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-statusRight >
+.com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-popdown > button div:after {
+    content: ' ↓';
+    position: relative;
+    border: 0;
+    top: -1px;
+}
 /* Footer */
 
 #gerrit_btmmenu {
@@ -596,7 +617,7 @@ button {
 }
 .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-infoTable > tbody > tr .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-commitColumn {
 	float: left;
-	width: calc(100% - 712px);
+	width: calc(100% - 475px);
 }
 .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-infoTable > tbody > tr .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-infoColumn {
 	float: right;
@@ -604,7 +625,7 @@ button {
 .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-infoTable > tbody > tr .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-relatedColumn {
 	float: left;
 	width: 370px;
-	margin-top: 110px;
+	margin-top: 10px;
 	position: relative;
 }
 .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-infoTable > tbody > tr .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-relatedColumn .gwt-TabPanelBottom {
@@ -674,14 +695,8 @@ th.com-google-gerrit-client-change-FileTable-FileTableCss-deltaColumn2 {
 }
 .gwt-TabPanel.com-google-gerrit-client-change-RelatedChanges-RelatedChangesCss-tabPanel {
 	table-layout: fixed;
-	margin-left: -40px;
+	margin-left: 0px;
 	width: calc(100% + 40px);
-}
-@media (min-width: 1600px) {
-		.gwt-TabPanel.com-google-gerrit-client-change-RelatedChanges-RelatedChangesCss-tabPanel {
-		width: calc(100% + 100px);
-		margin-left: -100px;
-	}
 }
 .gwt-TabPanel.com-google-gerrit-client-change-RelatedChanges-RelatedChangesCss-tabPanel .gwt-TabBarItem-wrapper {
 	padding: 0;
@@ -705,97 +720,113 @@ th.com-google-gerrit-client-change-FileTable-FileTableCss-deltaColumn2 {
 .gwt-TabBar {
 	border-bottom: 3px solid #ccc;
 }
-.com-google-gerrit-client-diff-Header_BinderImpl_GenCss_style-header {
+.gerritBody .com-google-gerrit-client-diff-Header_BinderImpl_GenCss_style-header {
 	padding: 10px 0;
 }
-.com-google-gerrit-client-diff-InsertCommentBubble_BinderImpl_GenCss_style-message {
+.gerritBody .com-google-gerrit-client-diff-InsertCommentBubble_BinderImpl_GenCss_style-message {
 	background: #DEF;
 }
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets {
-	background: #f1f1f1;
-	padding: 0 5px;
-	border: 1px solid #C7C7C7;
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets {
+	background: #4d90fe;
+	padding: 5px 10px;
+	border: 2px solid #3333;
 	border-radius: 3px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.07);
+	max-width: 600px;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
 }
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets,
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * {
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * {
 	box-sizing: border-box;
 }
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-header,
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-header {
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-header,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-header {
 	padding: 5px 0;
 }
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents,
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents {
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents {
 	margin-left: 0;
 }
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-editArea,
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message,
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-editArea,
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message {
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-editArea,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-editArea,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message {
 	max-width: none;
+	border: 1px solid rgba(0,0,0,0.25);
 	width: 100%;
 	font-weight: 400;
-	background-color: #FAFBFC;
-	border: 1px solid #C7C7C7;
+	background-color: #FAFBFC33;
 	border-radius: 3px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.07) inset;
 	box-sizing: border-box;
-	color: #606060;
+	color: #fff;
 	display: inline-block;
-	font-size: 13px;
+	font-size: 11px;
 	line-height: 1.75em;
 	outline: 0 none;
 	padding: 0.308em 0.615em;
 	transition: background-color 0.1s linear 0s, color 0.1s linear 0s, border-color 0.1s linear 0s, box-shadow 0.1s linear 0s;
 	vertical-align: middle;
 }
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-editArea + div,
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message + div,
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-editArea + div,
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message + div {
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-editArea + div,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message + div,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-editArea + div,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message + div {
 	padding: 5px 0;
 }
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message,
-.com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message {
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentWidgets * .com-google-gerrit-client-diff-CommentBox-Style-contents .com-google-gerrit-client-diff-CommentBox-Style-message {
 	cursor: default;
 }
-.com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-draft {
-	height: 23px;
-	line-height: 25px;
-	font-size: 14px;
-	border-radius: 2px;
+.gerritBody .com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-draft {
+	height: 20px;
+    line-height: 20px;
+    font-size: 11px;
+    border-radius: 5px;
+    color: rgba(255,255,255,0.75);
 }
-.com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-draft:hover {
+.gerritBody .com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-draft:hover,
+.gerritBody .com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-button:hover {
 	opacity: 0.8;
 }
-.com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-button {
-	height: 25px;
-	border-radius: 2px;
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentBox button {
+    border: none;
+    padding: 5px 15px;
+    background-color: #fff;
+    color: #4d90fe;
+    font-size: 11px;
+    background-image: none;
 }
-.com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-button div {
-	font-size: 14px;
-	font-weight: normal;
-	width: auto;
-	padding: 0 10px;
+.gerritBody .screen .button.com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-discard,
+.gerritBody .screen button.com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-discard {
+	color: #d14836;
+	position: inherit;
+	left: inherit;
 }
-.com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-button:hover {
-	opacity: 0.8;
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-commentBox button div {
+    width: inherit;
+    color: inherit;
 }
-.button.com-google-gerrit-client-diff-DraftBox_BinderImpl_GenCss_style-discard {
-	position: static;
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-message blockquote {
+    font-style: italic;
+    border-left: 4px solid #ddd8;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
 }
-.com-google-gerrit-client-diff-CommentBox-Style-commentBox button {
-	border: none;
-}
-.com-google-gerrit-client-diff-CommentBox-Style-summary,
-.com-google-gerrit-client-diff-CommentBox-Style-date {
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-summary,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-date {
 	line-height: 25px;
-	top: 7px;
+	top: 4px;
+	color: #fffa;
+	font-size: 11px;
 }
-.com-google-gerrit-client-diff-CommentBox-Style-message p {
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-message p {
 	line-height: 25px;
+}
+.gerritBody .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-infoLineHeaderButtons {
+    position: relative;
+    top: 2px;
 }
 #change_actions button,
 .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-headerButtons button {
@@ -820,8 +851,11 @@ button.com-google-gerrit-client-change-Reviewers_BinderImpl_GenCss_style-openAdd
 .projectFilterLabel {
 	line-height: 30px;
 }
-.changeTable .changeSize {
+.gerritBody .changeTable .changeSize {
 	border: 1px solid rgba(0, 0, 0, 0.3);
+	opacity: 0.8;
+	-webkit-filter: contrast(0.4) saturate(2);
+    filter: contrast(0.4) saturate(2);
 }
 [title="Create follow-up change"] {
 	display: none;
@@ -839,7 +873,7 @@ button.com-google-gerrit-client-change-Reviewers_BinderImpl_GenCss_style-openAdd
 	max-width: none;
 	margin-left: 28px;
 }
-.com-google-gerrit-client-diff-Header_BinderImpl_GenCss_style-navigation {
+.gerritBody .com-google-gerrit-client-diff-Header_BinderImpl_GenCss_style-navigation {
 	top: 8px;
 }
 .com-google-gerrit-client-diff-Header_BinderImpl_GenCss_style-navigation img,
@@ -857,8 +891,9 @@ button.com-google-gerrit-client-change-Reviewers_BinderImpl_GenCss_style-openAdd
 .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-infoLine {
 	top: -2px;
 }
-.com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-headerButtons {
-	top: 0;
+.gerritBody .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-sectionHeader .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-headerButtons {
+    border: 0;
+    top: 0;
 }
 .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-popdown button:hover {
 	opacity: 0.7;
@@ -940,9 +975,6 @@ button.com-google-gerrit-client-change-Reviewers_BinderImpl_GenCss_style-openAdd
 .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-scroll {
 	border: none !important;
 }
-.com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-text {
-	line-height: 15px;
-}
 .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-collapsed .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-scroll {
 	padding-top: 7px;
 }
@@ -964,13 +996,19 @@ button.com-google-gerrit-client-change-Reviewers_BinderImpl_GenCss_style-openAdd
 	position: relative;
 	top: -2px;
 }
-.com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-header td,
-.com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-header th {
-	line-height: 25px;
-	padding: 0 5px !important;
+.gerritBody .screen table .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-header td,
+.gerritBody .screen table .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-header th {
+    height: 18px;
+    line-height: 12px;
+    padding: 0 5px;
+    display: inline-block;
+    font-size: 12px;
 }
 .com-google-gwtexpui-clippy-client-ClippyCss-control {
 	right: -24px !important;
+}
+.gerritBody .com-google-gwtexpui-clippy-client-ClippyCss-label {
+    font-family: 'Source Code Pro', monospace;
 }
 .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-replyBox {
 	border-radius: 0 0 9px 9px;
@@ -1007,15 +1045,14 @@ button.com-google-gerrit-client-change-Reviewers_BinderImpl_GenCss_style-openAdd
 .com-google-gerrit-client-change-Resources-Style-section .com-google-gerrit-client-change-ReplyBox_BinderImpl_GenCss_style-cancel {
 	margin-right: 0;
 }
-.com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-diffBase {
-	font-size: 14px;
+.gerritBody .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-diffBase {
+	font-size: 12px;
+	vertical-align: inherit;
 }
-.com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-diffBase select {
-	height: 23px;
-	margin-top: 1px;
+.gerritBody .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-diffBase select {
+	height: 26px;
 }
 .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-sectionHeader button {
-	margin-top: 1px;
 }
 .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-text {
 	padding: 0 5px;
@@ -1035,27 +1072,28 @@ button.com-google-gerrit-client-change-Reviewers_BinderImpl_GenCss_style-openAdd
 	position: relative;
 	top: 2px;
 }
-.com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-text {
-	line-height: 23px;
-}
-.com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-header td {
-	line-height: 23px;
+.gerritBody .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-header {
+    width: 100%;
 }
 .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-clippy {
-	margin: 7px 0;
+	margin: 0;
 }
 .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-projectSettings img {
 	position: relative;
 	top: 4px;
 }
-.com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-text {
-	height: 106px;
+.gerritBody .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-text {
+    min-height: 150px;
+	max-height: 210px;
+	font-size: 12px;
+	line-height: 13px;
+	font-family: 'Source Code Pro';
 }
 .gwt-TabPanelBottom > div > div > div {
 	height: 120px !important;
 }
-.com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-scroll {
-	width: calc(100% + 370px);
+.gerritBody .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-scroll {
+	width: 100%;
 }
 .stringListPanelButtons {
 	margin: 0;
@@ -1081,10 +1119,7 @@ button.com-google-gerrit-client-change-Reviewers_BinderImpl_GenCss_style-openAdd
 	margin-bottom: 10px;
 	padding-bottom: 0;
 }
-.com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-header th,
-.com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-header td {
-	display: inline-block;
-}
+
 @media (max-width: 1280px) {
 	.menuBarUserNamePanel {
 		position: absolute;
@@ -1121,7 +1156,7 @@ button.com-google-gerrit-client-change-Reviewers_BinderImpl_GenCss_style-openAdd
 .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-collapsed .com-google-gerrit-client-change-CommitBox_BinderImpl_GenCss_style-scroll {
 	padding-top: 10px;
 }
-.com-google-gerrit-client-change-FileTable-FileTableCss-table th {
+.gerritBody .com-google-gerrit-client-change-FileTable-FileTableCss-table th {
 	padding: 3px 0;
 	vertical-align: middle;
 }
@@ -1133,6 +1168,176 @@ button.com-google-gerrit-client-change-Reviewers_BinderImpl_GenCss_style-openAdd
 }
 
 table.com-google-gerrit-client-admin-ProjectAccessScreen_BinderImpl_GenCss_style-errorMessage + .gwt-Button {
-    display: none; 
+    display: none;
 }
 
+.gerritBody td.com-google-gerrit-client-change-FileTable-FileTableCss-pathColumn {
+    white-space: normal;
+}
+
+.gerritBody th.com-google-gerrit-client-change-FileTable-FileTableCss-deltaColumn2 {
+    text-align: right;
+    padding: 5px 10px;
+}
+
+.gerritBody .com-google-gerrit-client-change-FileTable-FileTableCss-inserted {
+    height: 12px;
+    background-color: #6c6;
+    margin-top: 4px;
+}
+
+.gerritBody .com-google-gerrit-client-change-FileTable-FileTableCss-deleted {
+    height: 12px;
+    background-color: #c66;
+    margin-top: 4px;
+}
+
+.gerritBody .com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-headerButtons button {
+    height: 14px;
+    padding: 4px 14px;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.gerritBody #change_actions > button {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    border-color: rgba(40,40,40,0.15);
+    padding: 4px 12px;
+}
+
+/* Icons */
+
+.gerritBody tr.activeRow > td.leftMostCell {
+    height: 18px;
+    width: 18px;
+    position: relative;
+}
+
+.gerritBody tr.activeRow > td.leftMostCell > img {
+    display: none;
+}
+
+.gerritBody tr.activeRow > td.leftMostCell:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: '\f105';
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 24px;
+    font-size: 18px;
+    margin-top: 4px;
+    opacity: 0.9;
+}
+
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-goNext,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-goPrev,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-goUp {
+    background: none;
+}
+
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-goNext:after,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-goPrev:after,
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-goUp:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 24px;
+    font-size: 20px;
+    margin-top: -1px;
+    opacity: 0.9;
+}
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-goNext:after {
+    content: '\f35a';
+}
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-goPrev:after {
+    content: '\f359';
+}
+.gerritBody .com-google-gerrit-client-diff-CommentBox-Style-goUp:after {
+    content: '\f35b';
+}
+
+.com-google-gerrit-client-change-Reviewers_BinderImpl_GenCss_style-addReviewer {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDU2MSA1NjEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDU2MSA1NjE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0icGVyc29uLWFkZCI+CgkJPHBhdGggZD0iTTM1NywyODAuNWM1Ni4xLDAsMTAyLTQ1LjksMTAyLTEwMnMtNDUuOS0xMDItMTAyLTEwMnMtMTAyLDQ1LjktMTAyLDEwMlMzMDAuOSwyODAuNSwzNTcsMjgwLjV6IE0xMjcuNSwyMjkuNVYxNTNoLTUxICAgIHY3Ni41SDB2NTFoNzYuNVYzNTdoNTF2LTc2LjVIMjA0di01MUgxMjcuNXogTTM1NywzMzEuNWMtNjguODUsMC0yMDQsMzMuMTUtMjA0LDEwMnY1MWg0MDh2LTUxICAgIEM1NjEsMzY0LjY1LDQyNS44NSwzMzEuNSwzNTcsMzMxLjV6IiBmaWxsPSIjMDI3NzlkIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==)
+}
+
+a.com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-projectSettings > img,
+.com-google-gerrit-client-diff-Header_BinderImpl_GenCss_style-preferences {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDQzOC41MjkgNDM4LjUyOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDM4LjUyOSA0MzguNTI5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTQzNi4yNSwxODEuNDM4Yy0xLjUyOS0yLjAwMi0zLjUyNC0zLjE5My01Ljk5NS0zLjU3MWwtNTIuMjQ5LTcuOTkyYy0yLjg1NC05LjEzNy02Ljc1Ni0xOC40NjEtMTEuNzA0LTI3Ljk4ICAgYzMuNDIyLTQuNzU4LDguNTU5LTExLjQ2NiwxNS40MS0yMC4xMjljNi44NTEtOC42NjEsMTEuNzAzLTE0Ljk4NywxNC41NjEtMTguOTg2YzEuNTIzLTIuMDk0LDIuMjc5LTQuMjgxLDIuMjc5LTYuNTY3ICAgYzAtMi42NjMtMC42Ni00Ljc1NS0xLjk5OC02LjI4Yy02Ljg0OC05LjcwOC0yMi41NTItMjUuODg1LTQ3LjEwNi00OC41MzZjLTIuMjc1LTEuOTAzLTQuNjYxLTIuODU0LTcuMTMyLTIuODU0ICAgYy0yLjg1NywwLTUuMTQsMC44NTUtNi44NTQsMi41NjdsLTQwLjUzOSwzMC41NDljLTcuODA2LTMuOTk5LTE2LjM3MS03LjUyLTI1LjY5My0xMC41NjVsLTcuOTk0LTUyLjUyOSAgIGMtMC4xOTEtMi40NzQtMS4yODctNC41MjEtMy4yODUtNi4xMzlDMjU1Ljk1LDAuODA2LDI1My42MjMsMCwyNTAuOTU0LDBoLTYzLjM4Yy01LjUyLDAtOC45NDcsMi42NjMtMTAuMjc4LDcuOTkzICAgYy0yLjQ3NSw5LjUxMy01LjIzNiwyNy4yMTQtOC4yOCw1My4xYy04Ljk0NywyLjg2LTE3LjYwNyw2LjQ3Ni0yNS45ODEsMTAuODUzbC0zOS4zOTktMzAuNTQ5ICAgYy0yLjQ3NC0xLjkwMy00Ljk0OC0yLjg1NC03LjQyMi0yLjg1NGMtNC4xODcsMC0xMy4xNzksNi44MDQtMjYuOTc5LDIwLjQxM2MtMTMuOCwxMy42MTItMjMuMTY5LDIzLjg0MS0yOC4xMjIsMzAuNjkgICBjLTEuNzE0LDIuNDc0LTIuNTY4LDQuNjY0LTIuNTY4LDYuNTY3YzAsMi4yODYsMC45NSw0LjU3LDIuODUzLDYuODUxYzEyLjc1MSwxNS40MiwyMi45MzYsMjguNTQ5LDMwLjU1LDM5LjQwMyAgIGMtNC43NTksOC43NTQtOC40NywxNy41MTEtMTEuMTMyLDI2LjI2NWwtNTMuMTA1LDcuOTkyYy0yLjA5MywwLjM4Mi0zLjksMS42MjEtNS40MjQsMy43MTVDMC43NiwxODIuNTMxLDAsMTg0LjcyMiwwLDE4Ny4wMDIgICB2NjMuMzgzYzAsMi40NzgsMC43Niw0LjcwOSwyLjI4NCw2LjcwOGMxLjUyNCwxLjk5OCwzLjUyMSwzLjE5NSw1Ljk5NiwzLjU3Mmw1Mi4yNSw3LjcxYzIuNjYzLDkuMzI1LDYuNTY0LDE4Ljc0MywxMS43MDQsMjguMjU3ICAgYy0zLjQyNCw0Ljc2MS04LjU2MywxMS40NjgtMTUuNDE1LDIwLjEyOWMtNi44NTEsOC42NjUtMTEuNzA5LDE0Ljk4OS0xNC41NjEsMTguOTg2Yy0xLjUyNSwyLjEwMi0yLjI4NSw0LjI4NS0yLjI4NSw2LjU3ICAgYzAsMi40NzEsMC42NjYsNC42NTgsMS45OTcsNi41NjFjNy40MjMsMTAuMjg0LDIzLjEyNSwyNi4yNzIsNDcuMTA5LDQ3Ljk2OWMyLjA5NSwyLjA5NCw0LjQ3NSwzLjEzOCw3LjEzNywzLjEzOCAgIGMyLjg1NywwLDUuMjM2LTAuODUyLDcuMTM4LTIuNTYzbDQwLjI1OS0zMC41NTNjNy44MDgsMy45OTcsMTYuMzcxLDcuNTE5LDI1LjY5NywxMC41NjhsNy45OTMsNTIuNTI5ICAgYzAuMTkzLDIuNDcxLDEuMjg3LDQuNTE4LDMuMjgzLDYuMTRjMS45OTcsMS42MjIsNC4zMzEsMi40MjMsNi45OTUsMi40MjNoNjMuMzhjNS41MywwLDguOTUyLTIuNjYyLDEwLjI4Ny03Ljk5NCAgIGMyLjQ3MS05LjUxNCw1LjIyOS0yNy4yMTMsOC4yNzQtNTMuMDk4YzguOTQ2LTIuODU4LDE3LjYwNy02LjQ3NiwyNS45ODEtMTAuODU1bDM5LjQwMiwzMC44NGMyLjY2MywxLjcxMiw1LjE0MSwyLjU2Myw3LjQyLDIuNTYzICAgYzQuMTg2LDAsMTMuMTMxLTYuNzUyLDI2LjgzMy0yMC4yN2MxMy43MDktMTMuNTExLDIzLjEzLTIzLjc5LDI4LjI2NC0zMC44MzdjMS43MTEtMS45MDIsMi41NjktNC4wOSwyLjU2OS02LjU2MSAgIGMwLTIuNDc4LTAuOTQ3LTQuODYyLTIuODU3LTcuMTM5Yy0xMy42OTgtMTYuNzU0LTIzLjg4My0yOS44ODItMzAuNTQ2LTM5LjQwMmMzLjgwNi03LjA0Myw3LjUxOS0xNS43MDEsMTEuMTM2LTI1Ljk4bDUyLjgxNy03Ljk4OCAgIGMyLjI3OS0wLjM4Myw0LjE4OS0xLjYyMiw1LjcwOC0zLjcxNmMxLjUyMy0yLjA5OCwyLjI3OS00LjI4OCwyLjI3OS02LjU3MXYtNjMuMzc2ICAgQzQzOC41MzMsMTg1LjY3MSw0MzcuNzc3LDE4My40MzgsNDM2LjI1LDE4MS40Mzh6IE0yNzAuOTQ2LDI3MC45MzljLTE0LjI3MSwxNC4yNzctMzEuNDk3LDIxLjQxNi01MS42NzYsMjEuNDE2ICAgYy0yMC4xNzcsMC0zNy40MDEtNy4xMzktNTEuNjc4LTIxLjQxNmMtMTQuMjcyLTE0LjI3MS0yMS40MTEtMzEuNDk4LTIxLjQxMS01MS42NzNjMC0yMC4xNzcsNy4xMzUtMzcuNDAxLDIxLjQxMS01MS42NzggICBjMTQuMjc3LTE0LjI3MiwzMS41MDQtMjEuNDExLDUxLjY3OC0yMS40MTFjMjAuMTc5LDAsMzcuNDA2LDcuMTM5LDUxLjY3NiwyMS40MTFjMTQuMjc0LDE0LjI3NywyMS40MTMsMzEuNTAxLDIxLjQxMyw1MS42NzggICBDMjkyLjM1OSwyMzkuNDQxLDI4NS4yMjEsMjU2LjY2OSwyNzAuOTQ2LDI3MC45Mzl6IiBmaWxsPSIjMDI3NzlkIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
+}
+a.com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-projectSettings > img:hover,
+.com-google-gerrit-client-diff-Header_BinderImpl_GenCss_style-preferences:hover {
+    -webkit-filter: brightness(130%);
+    filter: brightness(130%);
+}
+.com-google-gerrit-client-change-Assignee_BinderImpl_GenCss_style-editAssignee {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDM5OS4xNCAzOTkuMTQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM5OS4xNCAzOTkuMTQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8Y2lyY2xlIGN4PSIxMDguNzUiIGN5PSI3Mi45OCIgcj0iNjAiIGZpbGw9IiMwMjc3OWQiLz4KCTxwYXRoIGQ9Ik0xOTIuMzg5LDIwMi4yMzhjLTE5Ljk0Ni0yMy45ODQtNTAuMDA2LTM5LjI1OC04My42MzktMzkuMjU4QzQ4LjY4OSwxNjIuOTgsMCwyMTEuNjY5LDAsMjcxLjczaDEyMi44OTdMMTkyLjM4OSwyMDIuMjM4eiIgZmlsbD0iIzAyNzc5ZCIvPgoJPHBhdGggZD0iTTMwMC4zNzYsMTM2LjY3NmwzOC42NjEtMzguNjYxbDYwLjEwNCw2MC4xMDRsLTM4LjY2MSwzOC42NjFMMzAwLjM3NiwxMzYuNjc2eiIgZmlsbD0iIzAyNzc5ZCIvPgoJPHBhdGggZD0iTTExMC45OTgsMzg2LjE2bDY4LjQ2NC0xOS45ODZsLTQ4LjQ3OC00OC40NzdMMTEwLjk5OCwzODYuMTZ6IiBmaWxsPSIjMDI3NzlkIi8+Cgk8cGF0aCBkPSJNMTQ2LjM4MSwyOTAuNjdsMTMyLjc4Mi0xMzIuNzgybDYwLjEwNCw2MC4xMDRMMjA2LjQ4NSwzNTAuNzc0TDE0Ni4zODEsMjkwLjY3eiIgZmlsbD0iIzAyNzc5ZCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
+}
+.com-google-gerrit-client-change-Topic_BinderImpl_GenCss_style-edit {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8Zz4KCQk8Zz4KCQkJPHBhdGggZD0iTTM1Mi40NTksMjIwYzAtMTEuMDQ2LTguOTU0LTIwLTIwLTIwaC0yMDZjLTExLjA0NiwwLTIwLDguOTU0LTIwLDIwczguOTU0LDIwLDIwLDIwaDIwNiAgICAgQzM0My41MDUsMjQwLDM1Mi40NTksMjMxLjA0NiwzNTIuNDU5LDIyMHoiIGZpbGw9IiMwMjc3OWQiLz4KCQkJPHBhdGggZD0iTTEyNi40NTksMjgwYy0xMS4wNDYsMC0yMCw4Ljk1NC0yMCwyMGMwLDExLjA0Niw4Ljk1NCwyMCwyMCwyMEgyNTEuNTdjMTEuMDQ2LDAsMjAtOC45NTQsMjAtMjBjMC0xMS4wNDYtOC45NTQtMjAtMjAtMjAgICAgIEgxMjYuNDU5eiIgZmlsbD0iIzAyNzc5ZCIvPgoJCQk8cGF0aCBkPSJNMTczLjQ1OSw0NzJIMTA2LjU3Yy0yMi4wNTYsMC00MC0xNy45NDQtNDAtNDBWODBjMC0yMi4wNTYsMTcuOTQ0LTQwLDQwLTQwaDI0NS44ODljMjIuMDU2LDAsNDAsMTcuOTQ0LDQwLDQwdjEyMyAgICAgYzAsMTEuMDQ2LDguOTU0LDIwLDIwLDIwYzExLjA0NiwwLDIwLTguOTU0LDIwLTIwVjgwYzAtNDQuMTEyLTM1Ljg4OC04MC04MC04MEgxMDYuNTdjLTQ0LjExMiwwLTgwLDM1Ljg4OC04MCw4MHYzNTIgICAgIGMwLDQ0LjExMiwzNS44ODgsODAsODAsODBoNjYuODg5YzExLjA0NiwwLDIwLTguOTU0LDIwLTIwQzE5My40NTksNDgwLjk1NCwxODQuNTA1LDQ3MiwxNzMuNDU5LDQ3MnoiIGZpbGw9IiMwMjc3OWQiLz4KCQkJPHBhdGggZD0iTTQ2Ny44ODQsMjg5LjU3MmMtMjMuMzk0LTIzLjM5NC02MS40NTgtMjMuMzk1LTg0LjgzNy0wLjAxNmwtMTA5LjgwMywxMDkuNTZjLTIuMzMyLDIuMzI3LTQuMDUyLDUuMTkzLTUuMDEsOC4zNDUgICAgIGwtMjMuOTEzLDc4LjcyNWMtMi4xMiw2Ljk4LTAuMjczLDE0LjU1OSw0LjgyMSwxOS43OGMzLjgxNiwzLjkxMSw5LDYuMDM0LDE0LjMxNyw2LjAzNGMxLjc3OSwwLDMuNTc1LTAuMjM4LDUuMzM4LTAuNzI3ICAgICBsODAuNzI1LTIyLjM2MWMzLjMyMi0wLjkyLDYuMzUtMi42ODMsOC43OS01LjExOWwxMDkuNTczLTEwOS4zNjdDNDkxLjI3OSwzNTEuMDMyLDQ5MS4yNzksMzEyLjk2OCw0NjcuODg0LDI4OS41NzJ6ICAgICAgTTMzMy43NzYsNDUxLjc2OGwtNDAuNjEyLDExLjI1bDExLjg4NS0zOS4xMjlsNzQuMDg5LTczLjkyNWwyOC4yOSwyOC4yOUwzMzMuNzc2LDQ1MS43Njh6IE00MzkuNjE1LDM0Ni4xM2wtMy44NzUsMy44NjcgICAgIGwtMjguMjg1LTI4LjI4NWwzLjg2Mi0zLjg1NGM3Ljc5OC03Ljc5OCwyMC40ODYtNy43OTgsMjguMjg0LDBDNDQ3LjM5OSwzMjUuNjU2LDQ0Ny4zOTksMzM4LjM0NCw0MzkuNjE1LDM0Ni4xM3oiIGZpbGw9IiMwMjc3OWQiLz4KCQkJPHBhdGggZD0iTTMzMi40NTksMTIwaC0yMDZjLTExLjA0NiwwLTIwLDguOTU0LTIwLDIwczguOTU0LDIwLDIwLDIwaDIwNmMxMS4wNDYsMCwyMC04Ljk1NCwyMC0yMFMzNDMuNTA1LDEyMCwzMzIuNDU5LDEyMHoiIGZpbGw9IiMwMjc3OWQiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==)
+}
+/* approve */
+.gerritBody td.cAPPROVAL > img[src*=k8WI5dcaoQAAAABJRU5ErkJggg] {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0MjYuNjY3IDQyNi42NjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQyNi42NjcgNDI2LjY2NzsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiM2QUMyNTk7IiBkPSJNMjEzLjMzMywwQzk1LjUxOCwwLDAsOTUuNTE0LDAsMjEzLjMzM3M5NS41MTgsMjEzLjMzMywyMTMuMzMzLDIxMy4zMzMgIGMxMTcuODI4LDAsMjEzLjMzMy05NS41MTQsMjEzLjMzMy0yMTMuMzMzUzMzMS4xNTcsMCwyMTMuMzMzLDB6IE0xNzQuMTk5LDMyMi45MThsLTkzLjkzNS05My45MzFsMzEuMzA5LTMxLjMwOWw2Mi42MjYsNjIuNjIyICBsMTQwLjg5NC0xNDAuODk4bDMxLjMwOSwzMS4zMDlMMTc0LjE5OSwzMjIuOTE4eiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
+}
+/* disaprove */
+.gerritBody td.cAPPROVAL > img[src*=kEpgRFM89AAAAABJRU5ErkJggg] {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ1NS4xMTEgNDU1LjExMSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDU1LjExMSA0NTUuMTExOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPGNpcmNsZSBzdHlsZT0iZmlsbDojRTI0QzRCOyIgY3g9IjIyNy41NTYiIGN5PSIyMjcuNTU2IiByPSIyMjcuNTU2Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiNEMTQwM0Y7IiBkPSJNNDU1LjExMSwyMjcuNTU2YzAsMTI1LjE1Ni0xMDIuNCwyMjcuNTU2LTIyNy41NTYsMjI3LjU1NmMtNzIuNTMzLDAtMTM2LjUzMy0zMi43MTEtMTc3Ljc3OC04NS4zMzMgIGMzOC40LDMxLjI4OSw4OC4xNzgsNDkuNzc4LDE0Mi4yMjIsNDkuNzc4YzEyNS4xNTYsMCwyMjcuNTU2LTEwMi40LDIyNy41NTYtMjI3LjU1NmMwLTU0LjA0NC0xOC40ODktMTAzLjgyMi00OS43NzgtMTQyLjIyMiAgQzQyMi40LDkxLjAyMiw0NTUuMTExLDE1NS4wMjIsNDU1LjExMSwyMjcuNTU2eiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojRkZGRkZGOyIgZD0iTTMzMS4zNzgsMzMxLjM3OGMtOC41MzMsOC41MzMtMjIuNzU2LDguNTMzLTMxLjI4OSwwbC03Mi41MzMtNzIuNTMzbC03Mi41MzMsNzIuNTMzICBjLTguNTMzLDguNTMzLTIyLjc1Niw4LjUzMy0zMS4yODksMGMtOC41MzMtOC41MzMtOC41MzMtMjIuNzU2LDAtMzEuMjg5bDcyLjUzMy03Mi41MzNsLTcyLjUzMy03Mi41MzMgIGMtOC41MzMtOC41MzMtOC41MzMtMjIuNzU2LDAtMzEuMjg5YzguNTMzLTguNTMzLDIyLjc1Ni04LjUzMywzMS4yODksMGw3Mi41MzMsNzIuNTMzbDcyLjUzMy03Mi41MzMgIGM4LjUzMy04LjUzMywyMi43NTYtOC41MzMsMzEuMjg5LDBjOC41MzMsOC41MzMsOC41MzMsMjIuNzU2LDAsMzEuMjg5bC03Mi41MzMsNzIuNTMzbDcyLjUzMyw3Mi41MzMgIEMzMzkuOTExLDMwOC42MjIsMzM5LjkxMSwzMjIuODQ0LDMzMS4zNzgsMzMxLjM3OHoiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
+}
+.gerritBody td.cAPPROVAL {
+    font-weight: bold;
+}
+.gerritBody .com-google-gerrit-client-diff-PatchSetSelectBox_BinderImpl_GenCss_style-iconCell img[title='Click to add file comment'] {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDUxMS42MjYgNTExLjYyNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTExLjYyNiA1MTEuNjI2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTMwMS45MjcsMzI3LjYwNWMzMC45MjYtMTMuMDM4LDU1LjM0LTMwLjc4NSw3My4yMy01My4yNDhjMTcuODg4LTIyLjQ1OCwyNi44MzMtNDYuOTE1LDI2LjgzMy03My4zNzIgICAgYzAtMjYuNDU4LTguOTQ1LTUwLjkxNy0yNi44NC03My4zNzZjLTE3Ljg4OC0yMi40NTktNDIuMjk4LTQwLjIwOC03My4yMjgtNTMuMjQ5Yy0zMC45My0xMy4wMzktNjQuNTcxLTE5LjU1Ni0xMDAuOTI4LTE5LjU1NiAgICBjLTM2LjM1NCwwLTY5Ljk5NSw2LjUyMS0xMDAuOTI3LDE5LjU1NmMtMzAuOTI5LDEzLjA0LTU1LjM0LDMwLjc4OS03My4yMjksNTMuMjQ5QzguOTQ3LDE1MC4wNzIsMCwxNzQuNTI3LDAsMjAwLjk4NiAgICBjMCwyMi42NDgsNi43NjcsNDMuOTc1LDIwLjI4LDYzLjk2YzEzLjUxMiwxOS45ODEsMzIuMDcxLDM2LjgyOSw1NS42NzEsNTAuNTMxYy0xLjkwMiw0LjU3Mi0zLjg1Myw4Ljc1NC01Ljg1MiwxMi41NjYgICAgYy0yLDMuODA2LTQuMzc3LDcuNDY3LTcuMTM5LDEwLjk5MWMtMi43NiwzLjUyNS00Ljg5OSw2LjI4My02LjQyMyw4LjI3NWMtMS41MjMsMS45OTgtMy45OTcsNC44MTItNy40MjUsOC40MjIgICAgYy0zLjQyNywzLjYxNy01LjYxNyw1Ljk5Ni02LjU2Nyw3LjEzNWMwLTAuMTkxLTAuMzgxLDAuMjQtMS4xNDMsMS4yODdjLTAuNzYzLDEuMDQ3LTEuMTkxLDEuNTItMS4yODUsMS40MzEgICAgYy0wLjA5Ni0wLjEwMy0wLjQ3NywwLjM3My0xLjE0MywxLjQyYy0wLjY2NiwxLjA0OC0xLDEuNTcxLTEsMS41NzFsLTAuNzE1LDEuNDIzYy0wLjI4MiwwLjU3NS0wLjQ3NiwxLjEzNy0wLjU3LDEuNzEyICAgIGMtMC4wOTYsMC41NjctMC4xNDQsMS4xOS0wLjE0NCwxLjg1NHMwLjA5NCwxLjI4LDAuMjg4LDEuODU0YzAuMzgxLDIuNDcxLDEuNDc1LDQuNDY2LDMuMjgzLDUuOTk2ICAgIGMxLjgwNywxLjUyLDMuNzU2LDIuMjc5LDUuODUyLDIuMjc5aDAuODU3YzkuNTE1LTEuMzMyLDE3LjcwMS0yLjg1NCwyNC41NTItNC41NjljMjkuMzEyLTcuNjEsNTUuNzcxLTE5Ljc5Nyw3OS4zNzItMzYuNTQ1ICAgIGMxNy4xMjksMy4wNDYsMzMuODc5LDQuNTY4LDUwLjI0Nyw0LjU2OEMyMzcuMzUzLDM0Ny4xNiwyNzAuOTk4LDM0MC42NDUsMzAxLjkyNywzMjcuNjA1eiIgZmlsbD0iIzAyNzc5ZCIvPgoJCTxwYXRoIGQ9Ik00OTEuMzU0LDMzOC4xNjZjMTMuNTE4LTE5Ljg4OSwyMC4yNzItNDEuMjQ3LDIwLjI3Mi02NC4wOWMwLTIzLjQxNC03LjE0Ni00NS4zMTYtMjEuNDE2LTY1LjY4ICAgIGMtMTQuMjc3LTIwLjM2Mi0zMy42OTQtMzcuMzA1LTU4LjI0NS01MC44MTljNC4zNzQsMTQuMjc0LDYuNTYzLDI4LjczOSw2LjU2Myw0My4zOThjMCwyNS41MDMtNi4zNjgsNDkuNjc2LTE5LjEyOSw3Mi41MTkgICAgYy0xMi43NTIsMjIuODM2LTMxLjAyNSw0My4wMS01NC44MTYsNjAuNTI0Yy0yMi4wOCwxNS45ODgtNDcuMjA1LDI4LjI2MS03NS4zNzcsMzYuODI5ICAgIGMtMjguMTY0LDguNTYyLTU3LjU3MywxMi44NDgtODguMjE4LDEyLjg0OGMtNS43MDgsMC0xNC4wODQtMC4zNzctMjUuMTIyLTEuMTM3YzM4LjI1NiwyNS4xMTksODMuMTc3LDM3LjY4NSwxMzQuNzU2LDM3LjY4NSAgICBjMTYuMzcxLDAsMzMuMTE5LTEuNTI2LDUwLjI1MS00LjU3MWMyMy42LDE2Ljc1NSw1MC4wNiwyOC45MzEsNzkuMzcsMzYuNTQ5YzYuODUyLDEuNzE4LDE1LjAzNywzLjIzNywyNC41NTQsNC41NjggICAgYzIuMjgzLDAuMTkxLDQuMzgxLTAuNDc2LDYuMjgzLTEuOTk5YzEuOTAzLTEuNTIyLDMuMTQyLTMuNjEsMy43MS02LjI3MmMtMC4wODktMS4xNDMsMC0xLjc3LDAuMjg3LTEuODYxICAgIGMwLjI4MS0wLjA5LDAuMjMzLTAuNzEyLTAuMTQ0LTEuODUyYy0wLjM3Ni0xLjE0NC0wLjU2OC0xLjcxNS0wLjU2OC0xLjcxNWwtMC43MTItMS40MjRjLTAuMTk4LTAuMzc2LTAuNTItMC45MDMtMC45OTktMS41NjcgICAgYy0wLjQ3Ni0wLjY2LTAuODU1LTEuMTQzLTEuMTQzLTEuNDI3Yy0wLjI4LTAuMjg0LTAuNzA1LTAuNzYzLTEuMjgtMS40MjRjLTAuNTY4LTAuNjYtMC45NTEtMS4wOTItMS4xNDMtMS4yODMgICAgYy0wLjk1MS0xLjE0My0zLjEzOS0zLjUyMS02LjU2NC03LjEzOWMtMy40MjktMy42MTMtNS44OTktNi40Mi03LjQyMi04LjQxOGMtMS41MjMtMS45OTktMy42NjUtNC43NTctNi40MjQtOC4yODIgICAgYy0yLjc1OC0zLjUxOC01LjE0LTcuMTgzLTcuMTM5LTEwLjk5MWMtMS45OTgtMy44MDYtMy45NDktNy45OTUtNS44NTItMTIuNTZDNDU5LjI4OSwzNzQuODU5LDQ3Ny44NDMsMzU4LjA2Miw0OTEuMzU0LDMzOC4xNjZ6IiBmaWxsPSIjMDI3NzlkIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
+}
+.gerritBody .com-google-gerrit-client-diff-PatchSetSelectBox_BinderImpl_GenCss_style-iconCell img[title='Click to add file comment']:hover {
+    -webkit-filter: brightness(130%);
+    filter: brightness(130%);
+}
+
+.gerritBody .com-google-gerrit-client-diff-PatchSetSelectBox_BinderImpl_GenCss_style-linkCell a[title=Blame] img {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4NiA0ODYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ4NiA0ODY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8cGF0aCBpZD0iWE1MSURfNDlfIiBkPSJNMjk4LjQsNDI0Ljd2MTQuMmMwLDExLjMtOC4zLDIwLjctMTkuMSwyMi4zbC0zLjUsMTIuOWMtMS45LDctOC4yLDExLjktMTUuNSwxMS45aC0zNC43ICAgYy03LjMsMC0xMy42LTQuOS0xNS41LTExLjlsLTMuNC0xMi45Yy0xMC45LTEuNy0xOS4yLTExLTE5LjItMjIuNHYtMTQuMmMwLTcuNiw2LjEtMTMuNywxMy43LTEzLjdoODMuNSAgIEMyOTIuMyw0MTEsMjk4LjQsNDE3LjEsMjk4LjQsNDI0Ljd6IE0zNjIuNywyMzMuM2MwLDMyLjMtMTIuOCw2MS42LTMzLjYsODMuMWMtMTUuOCwxNi40LTI2LDM3LjMtMjkuNCw1OS42ICAgYy0xLjUsOS42LTkuOCwxNi43LTE5LjYsMTYuN2gtNzQuM2MtOS43LDAtMTguMS03LTE5LjUtMTYuNmMtMy41LTIyLjMtMTMuOC00My41LTI5LjYtNTkuOGMtMjAuNC0yMS4yLTMzLjEtNTAtMzMuNC04MS43ICAgYy0wLjctNjYuNiw1Mi4zLTEyMC41LDExOC45LTEyMUMzMDguNywxMTMuMSwzNjIuNywxNjYuOSwzNjIuNywyMzMuM3ogTTI1Ni41LDE2MC44YzAtNy40LTYtMTMuNS0xMy41LTEzLjUgICBjLTQ3LjYsMC04Ni40LDM4LjctODYuNCw4Ni40YzAsNy40LDYsMTMuNSwxMy41LDEzLjVjNy40LDAsMTMuNS02LDEzLjUtMTMuNWMwLTMyLjgsMjYuNy01OS40LDU5LjQtNTkuNCAgIEMyNTAuNSwxNzQuMywyNTYuNSwxNjguMywyNTYuNSwxNjAuOHogTTI0Myw3NC4zYzcuNCwwLDEzLjUtNiwxMy41LTEzLjVWMTMuNWMwLTcuNC02LTEzLjUtMTMuNS0xMy41cy0xMy41LDYtMTMuNSwxMy41djQ3LjMgICBDMjI5LjUsNjguMywyMzUuNiw3NC4zLDI0Myw3NC4zeiBNODQuMSwyMzMuMmMwLTcuNC02LTEzLjUtMTMuNS0xMy41SDIzLjNjLTcuNCwwLTEzLjUsNi0xMy41LDEzLjVjMCw3LjQsNiwxMy41LDEzLjUsMTMuNWg0Ny4zICAgQzc4LjEsMjQ2LjcsODQuMSwyNDAuNyw4NC4xLDIzMy4yeiBNNDYyLjcsMjE5LjdoLTQ3LjNjLTcuNCwwLTEzLjUsNi0xMy41LDEzLjVjMCw3LjQsNiwxMy41LDEzLjUsMTMuNWg0Ny4zICAgYzcuNCwwLDEzLjUtNiwxMy41LTEzLjVDNDc2LjIsMjI1LjgsNDcwLjIsMjE5LjcsNDYyLjcsMjE5Ljd6IE0xMTEuNiwzNDUuNmwtMzMuNSwzMy41Yy01LjMsNS4zLTUuMywxMy44LDAsMTkuMSAgIGMyLjYsMi42LDYuMSwzLjksOS41LDMuOXM2LjktMS4zLDkuNS0zLjlsMzMuNS0zMy41YzUuMy01LjMsNS4zLTEzLjgsMC0xOS4xQzEyNS40LDM0MC4zLDExNi44LDM0MC4zLDExMS42LDM0NS42eiBNMzY0LjksMTI0LjggICBjMy40LDAsNi45LTEuMyw5LjUtMy45bDMzLjUtMzMuNWM1LjMtNS4zLDUuMy0xMy44LDAtMTkuMWMtNS4zLTUuMy0xMy44LTUuMy0xOS4xLDBsLTMzLjUsMzMuNWMtNS4zLDUuMy01LjMsMTMuOCwwLDE5LjEgICBDMzU4LDEyMy41LDM2MS40LDEyNC44LDM2NC45LDEyNC44eiBNMTExLjYsMTIwLjhjMi42LDIuNiw2LjEsMy45LDkuNSwzLjlzNi45LTEuMyw5LjUtMy45YzUuMy01LjMsNS4zLTEzLjgsMC0xOS4xTDk3LjEsNjguMiAgIGMtNS4zLTUuMy0xMy44LTUuMy0xOS4xLDBjLTUuMyw1LjMtNS4zLDEzLjgsMCwxOS4xTDExMS42LDEyMC44eiBNMzc0LjQsMzQ1LjZjLTUuMy01LjMtMTMuOC01LjMtMTkuMSwwYy01LjMsNS4zLTUuMywxMy44LDAsMTkuMSAgIGwzMy41LDMzLjVjMi42LDIuNiw2LjEsMy45LDkuNSwzLjlzNi45LTEuMyw5LjUtMy45YzUuMy01LjMsNS4zLTEzLjgsMC0xOS4xTDM3NC40LDM0NS42eiIgZmlsbD0iIzAyNzc5ZCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
+}
+.gerritBody .com-google-gerrit-client-diff-PatchSetSelectBox_BinderImpl_GenCss_style-linkCell a[title=Blame] img:hover {
+    -webkit-filter: brightness(130%);
+    filter: brightness(130%);
+}
+
+.gerritBody .com-google-gerrit-client-diff-PatchSetSelectBox_BinderImpl_GenCss_style-linkCell a[title=Download] img {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMzgyLjU2LDIzMy4zNzZDMzc5Ljk2OCwyMjcuNjQ4LDM3NC4yNzIsMjI0LDM2OCwyMjRoLTY0VjE2YzAtOC44MzItNy4xNjgtMTYtMTYtMTZoLTY0Yy04LjgzMiwwLTE2LDcuMTY4LTE2LDE2djIwOGgtNjQgICAgYy02LjI3MiwwLTExLjk2OCwzLjY4LTE0LjU2LDkuMzc2Yy0yLjYyNCw1LjcyOC0xLjYsMTIuNDE2LDIuNTI4LDE3LjE1MmwxMTIsMTI4YzMuMDQsMy40ODgsNy40MjQsNS40NzIsMTIuMDMyLDUuNDcyICAgIGM0LjYwOCwwLDguOTkyLTIuMDE2LDEyLjAzMi01LjQ3MmwxMTItMTI4QzM4NC4xOTIsMjQ1LjgyNCwzODUuMTUyLDIzOS4xMDQsMzgyLjU2LDIzMy4zNzZ6IiBmaWxsPSIjMDI3NzlkIi8+Cgk8L2c+CjwvZz4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNNDMyLDM1MnY5Nkg4MHYtOTZIMTZ2MTI4YzAsMTcuNjk2LDE0LjMzNiwzMiwzMiwzMmg0MTZjMTcuNjk2LDAsMzItMTQuMzA0LDMyLTMyVjM1Mkg0MzJ6IiBmaWxsPSIjMDI3NzlkIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
+}
+.gerritBody .com-google-gerrit-client-diff-PatchSetSelectBox_BinderImpl_GenCss_style-linkCell a[title=Download] img:hover {
+    -webkit-filter: brightness(130%);
+    filter: brightness(130%);
+}
+.gerritBody .com-google-gerrit-client-diff-PatchSetSelectBox_BinderImpl_GenCss_style-linkCell a[title=Edit] img {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8Zz4KCQk8Zz4KCQkJPHBhdGggZD0iTTM1Mi40NTksMjIwYzAtMTEuMDQ2LTguOTU0LTIwLTIwLTIwaC0yMDZjLTExLjA0NiwwLTIwLDguOTU0LTIwLDIwczguOTU0LDIwLDIwLDIwaDIwNiAgICAgQzM0My41MDUsMjQwLDM1Mi40NTksMjMxLjA0NiwzNTIuNDU5LDIyMHoiIGZpbGw9IiMwMjc3OWQiLz4KCQkJPHBhdGggZD0iTTEyNi40NTksMjgwYy0xMS4wNDYsMC0yMCw4Ljk1NC0yMCwyMGMwLDExLjA0Niw4Ljk1NCwyMCwyMCwyMEgyNTEuNTdjMTEuMDQ2LDAsMjAtOC45NTQsMjAtMjBjMC0xMS4wNDYtOC45NTQtMjAtMjAtMjAgICAgIEgxMjYuNDU5eiIgZmlsbD0iIzAyNzc5ZCIvPgoJCQk8cGF0aCBkPSJNMTczLjQ1OSw0NzJIMTA2LjU3Yy0yMi4wNTYsMC00MC0xNy45NDQtNDAtNDBWODBjMC0yMi4wNTYsMTcuOTQ0LTQwLDQwLTQwaDI0NS44ODljMjIuMDU2LDAsNDAsMTcuOTQ0LDQwLDQwdjEyMyAgICAgYzAsMTEuMDQ2LDguOTU0LDIwLDIwLDIwYzExLjA0NiwwLDIwLTguOTU0LDIwLTIwVjgwYzAtNDQuMTEyLTM1Ljg4OC04MC04MC04MEgxMDYuNTdjLTQ0LjExMiwwLTgwLDM1Ljg4OC04MCw4MHYzNTIgICAgIGMwLDQ0LjExMiwzNS44ODgsODAsODAsODBoNjYuODg5YzExLjA0NiwwLDIwLTguOTU0LDIwLTIwQzE5My40NTksNDgwLjk1NCwxODQuNTA1LDQ3MiwxNzMuNDU5LDQ3MnoiIGZpbGw9IiMwMjc3OWQiLz4KCQkJPHBhdGggZD0iTTQ2Ny44ODQsMjg5LjU3MmMtMjMuMzk0LTIzLjM5NC02MS40NTgtMjMuMzk1LTg0LjgzNy0wLjAxNmwtMTA5LjgwMywxMDkuNTZjLTIuMzMyLDIuMzI3LTQuMDUyLDUuMTkzLTUuMDEsOC4zNDUgICAgIGwtMjMuOTEzLDc4LjcyNWMtMi4xMiw2Ljk4LTAuMjczLDE0LjU1OSw0LjgyMSwxOS43OGMzLjgxNiwzLjkxMSw5LDYuMDM0LDE0LjMxNyw2LjAzNGMxLjc3OSwwLDMuNTc1LTAuMjM4LDUuMzM4LTAuNzI3ICAgICBsODAuNzI1LTIyLjM2MWMzLjMyMi0wLjkyLDYuMzUtMi42ODMsOC43OS01LjExOWwxMDkuNTczLTEwOS4zNjdDNDkxLjI3OSwzNTEuMDMyLDQ5MS4yNzksMzEyLjk2OCw0NjcuODg0LDI4OS41NzJ6ICAgICAgTTMzMy43NzYsNDUxLjc2OGwtNDAuNjEyLDExLjI1bDExLjg4NS0zOS4xMjlsNzQuMDg5LTczLjkyNWwyOC4yOSwyOC4yOUwzMzMuNzc2LDQ1MS43Njh6IE00MzkuNjE1LDM0Ni4xM2wtMy44NzUsMy44NjcgICAgIGwtMjguMjg1LTI4LjI4NWwzLjg2Mi0zLjg1NGM3Ljc5OC03Ljc5OCwyMC40ODYtNy43OTgsMjguMjg0LDBDNDQ3LjM5OSwzMjUuNjU2LDQ0Ny4zOTksMzM4LjM0NCw0MzkuNjE1LDM0Ni4xM3oiIGZpbGw9IiMwMjc3OWQiLz4KCQkJPHBhdGggZD0iTTMzMi40NTksMTIwaC0yMDZjLTExLjA0NiwwLTIwLDguOTU0LTIwLDIwczguOTU0LDIwLDIwLDIwaDIwNmMxMS4wNDYsMCwyMC04Ljk1NCwyMC0yMFMzNDMuNTA1LDEyMCwzMzIuNDU5LDEyMHoiIGZpbGw9IiMwMjc3OWQiLz4KCQk8L2c+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==)
+}
+.gerritBody .com-google-gerrit-client-diff-PatchSetSelectBox_BinderImpl_GenCss_style-linkCell a[title=Edit] img:hover {
+    -webkit-filter: brightness(130%);
+    filter: brightness(130%);
+}
+.gerritBody .com-google-gerrit-client-diff-Header_BinderImpl_GenCss_style-linkPanel a[title='Unified diff'] img {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDkyLjM0NCA5Mi4zNDQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDkyLjM0NCA5Mi4zNDQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8Zz4KCQk8cmVjdCB4PSI0LjA5OSIgd2lkdGg9IjgyLjgyOSIgaGVpZ2h0PSIxMy4wMTUiIGZpbGw9IiMwMjc3OWQiLz4KCQk8cGF0aCBkPSJNMC42NTgsMjMuODYxdjE5LjMzMmg5MS4wMjdWMjMuODYxSDAuNjU4eiBNODYuNzI5LDM4LjIzNUg1LjYxNnYtOS40MTZoODEuMTExTDg2LjcyOSwzOC4yMzVMODYuNzI5LDM4LjIzNXoiIGZpbGw9IiMwMjc3OWQiLz4KCQk8cmVjdCB4PSI0LjA5OSIgeT0iNTQuNTM5IiB3aWR0aD0iODIuODI5IiBoZWlnaHQ9IjEzLjAxNSIgZmlsbD0iIzAyNzc5ZCIvPgoJCTxyZWN0IHg9IjExLjU4NCIgeT0iNzkuMzI5IiB3aWR0aD0iNjcuODU4IiBoZWlnaHQ9IjEzLjAxNSIgZmlsbD0iIzAyNzc5ZCIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
+}
+.gerritBody .com-google-gerrit-client-diff-Header_BinderImpl_GenCss_style-linkPanel a[title='Unified diff'] img:hover {
+    -webkit-filter: brightness(130%);
+    filter: brightness(130%);
+}
+.gerritBody .com-google-gerrit-client-diff-Header_BinderImpl_GenCss_style-linkPanel a[title='Side-by-side diff'] img {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxNnB4Ij4KPGc+Cgk8Zz4KCQk8Zz4KCQkJPHBhdGggZD0iTTIxNiwyMzZIMjBjLTExLjA0NiwwLTIwLDguOTU0LTIwLDIwczguOTU0LDIwLDIwLDIwaDE5NmMxMS4wNDYsMCwyMC04Ljk1NCwyMC0yMEMyMzYsMjQ0Ljk1NCwyMjcuMDQ2LDIzNiwyMTYsMjM2eiIgZmlsbD0iIzAyNzc5ZCIvPgoJCQk8cGF0aCBkPSJNMjE2LDQ3MkgyMGMtMTEuMDQ2LDAtMjAsOC45NTQtMjAsMjBjMCwxMS4wNDYsOC45NTQsMjAsMjAsMjBoMTk2YzExLjA0NiwwLDIwLTguOTU0LDIwLTIwICAgICBDMjM2LDQ4MC45NTQsMjI3LjA0Niw0NzIsMjE2LDQ3MnoiIGZpbGw9IiMwMjc3OWQiLz4KCQkJPHBhdGggZD0iTTIxNiwxMThIMjBjLTExLjA0NiwwLTIwLDguOTU0LTIwLDIwczguOTU0LDIwLDIwLDIwaDE5NmMxMS4wNDYsMCwyMC04Ljk1NCwyMC0yMEMyMzYsMTI2Ljk1NCwyMjcuMDQ2LDExOCwyMTYsMTE4eiIgZmlsbD0iIzAyNzc5ZCIvPgoJCQk8cGF0aCBkPSJNMjk2LDQwaDE5NmMxMS4wNDYsMCwyMC04Ljk1NCwyMC0yMHMtOC45NTQtMjAtMjAtMjBIMjk2Yy0xMS4wNDYsMC0yMCw4Ljk1NC0yMCwyMFMyODQuOTU0LDQwLDI5Niw0MHoiIGZpbGw9IiMwMjc3OWQiLz4KCQkJPHBhdGggZD0iTTIxNiwzNTRIMjBjLTExLjA0NiwwLTIwLDguOTU0LTIwLDIwYzAsMTEuMDQ2LDguOTU0LDIwLDIwLDIwaDE5NmMxMS4wNDYsMCwyMC04Ljk1NCwyMC0yMCAgICAgQzIzNiwzNjIuOTU0LDIyNy4wNDYsMzU0LDIxNiwzNTR6IiBmaWxsPSIjMDI3NzlkIi8+CgkJCTxwYXRoIGQ9Ik00OTIsMjM2SDI5NmMtMTEuMDQ2LDAtMjAsOC45NTQtMjAsMjBzOC45NTQsMjAsMjAsMjBoMTk2YzExLjA0NiwwLDIwLTguOTU0LDIwLTIwQzUxMiwyNDQuOTU0LDUwMy4wNDYsMjM2LDQ5MiwyMzZ6IiBmaWxsPSIjMDI3NzlkIi8+CgkJCTxwYXRoIGQ9Ik0yMTYsMEgyMEM4Ljk1NCwwLDAsOC45NTQsMCwyMHM4Ljk1NCwyMCwyMCwyMGgxOTZjMTEuMDQ2LDAsMjAtOC45NTQsMjAtMjBTMjI3LjA0NiwwLDIxNiwweiIgZmlsbD0iIzAyNzc5ZCIvPgoJCQk8cGF0aCBkPSJNNDkyLDExOEgyOTZjLTExLjA0NiwwLTIwLDguOTU0LTIwLDIwYzAsMTEuMDQ2LDguOTU0LDIwLDIwLDIwaDE5NmMxMS4wNDYsMCwyMC04Ljk1NCwyMC0yMFM1MDMuMDQ2LDExOCw0OTIsMTE4eiIgZmlsbD0iIzAyNzc5ZCIvPgoJCQk8cGF0aCBkPSJNNDkyLDM1NEgyOTZjLTExLjA0NiwwLTIwLDguOTU0LTIwLDIwYzAsMTEuMDQ2LDguOTU0LDIwLDIwLDIwaDE5NmMxMS4wNDYsMCwyMC04Ljk1NCwyMC0yMCAgICAgQzUxMiwzNjIuOTU0LDUwMy4wNDYsMzU0LDQ5MiwzNTR6IiBmaWxsPSIjMDI3NzlkIi8+CgkJPC9nPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=);
+}
+.gerritBody .com-google-gerrit-client-diff-Header_BinderImpl_GenCss_style-linkPanel a[title='Side-by-side diff'] img:hover {
+    -webkit-filter: brightness(130%);
+    filter: brightness(130%);
+}
