@@ -1,10 +1,12 @@
 @charset "UTF-8";
 
 /*!
- * Gerrit CSS theme 1.0.0 (https://github.com/Ecwid/gerrit-css-theme)
+ * Gerrit CSS theme 1.0.0 (https://github.com/cardil/gerrit-css-theme)
  * Licensed under the Apache 2.0 license
  * Copyright (c) 2017 ECWID S.à r.l. All rights reserved.
- * https://www.ecwid.com
+ * Copyright (c) 2018-2019 WaveSoftware. All rights reserved.
+ *
+ * https://wavesoftware.pl
  */
 
 /* Common styles */
@@ -23,8 +25,7 @@ body, table td, select {
 	font-family: 'Open Sans', sans-serif !important;
 	font-size: 13px;
 }
-body,
-.gwt-DialogBox .dialogMiddleCenter {
+body, .gwt-DialogBox .dialogMiddleCenter {
 	color: #333;
 }
 :focus {
